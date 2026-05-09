@@ -1,0 +1,51 @@
+:root{
+    --primary-blue: #22466C;
+    --dark-gray: #333;
+    --light-gray: #f4f4f4;
+
+}
+
+body{ font-family: sans-serife; text-align: center; margin: 0; }
+
+header { background: var(--dark-gray); color: white; }
+.course-banner { padding: 15px; font-size: 1.2rem; }
+nav { background: #444; }
+nav ul { list-style: none; display: flex; justify-content: center; padding: 10px; margin: 0; }
+nav a { color: white; text-decoration: none; padding: 0 20px; }
+
+.grid-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+    justify-content: space-around;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    flex: 1;
+    background: white;
+}
+
+.card-header {
+    background: var(--primary-blue);
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.card-body { padding: 20px; text-align: left; }
+
+.profile-img { float: right; width: 120px; margin-left: 15px; }
+
+footer {
+    background: var(--primary-blue);
+    color: white;
+    padding: 20px;
+    margin-top: 20px
+}
+
+.last-modified { color: #fdfd96; font-size: 0.9rem}

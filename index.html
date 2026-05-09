@@ -3,9 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WDD 131</title>
+    <title>WDD 131 - Dynamic Web Fundamentals - Munshimbwe Kafwanka</title>
+    <meta name="description" content="This is the index page for WDD 131 - Munshimbwe">
+    <meta name="author" content="Munshimbwe">
+    <link rel="stylesheet" href="styles/base.css">
+    <script src="scripts/getdates.js" defer></script>
 </head>
 <body>
-  <h1>Wdd 131 - Munshimbwe</h1>  
+  <header>
+  <div class="course-banner">WDD 131: Dyanamic Web Fundamentals</div>
+  <nav>
+    <ul>
+      <li><a href="#">LinkedIn</a></li>
+      <li><a href="#">Canvas</a></li>
+      <li><a href="#">Scripture</a></li>
+      <li><a href="#">Final Project</a></li>
+    </ul>
+  </nav>
+  </header>
+  
+  <h1 class="stdent-name">Munshimbwe Kafwanka</h1>
+
+  <main class="grid-container">
+    <section class="card">
+      <div class="card-header">About Me</div>
+      <div class="card-body bio-section">
+        <p>My name is Munshimbwe Kafwanka. I was born in Kabwe Zambia</p>
+        <img src="images/profile.jpg" alt="Munshimbwe's Profile Picture" class="profile-img">
+
+
+        <h3>Kabwe, Zambia</h3>
+        <hr>
+        <div class="flag-content">
+          <figure>
+            <img src="images/zambia.webp" alt="Official flag of Zambia">
+            <figcaption>Official flag of Zambia</figcaption>
+          </figure>
+          <p>Zambia is the largest producer of copper in the world.</p>
+
+        </div>
+      </div>
+
+    </section>
+    <!--web dev resources section-->
+
+    <section class="card">
+      <div class="card-header">Web Dev Resources</div>
+      <div class="card-body">
+        <ul>
+          <li><a href="https://dev.to/">Dev.to Community</a></li>
+          <li><a href="https://www.smashingmagazine.com">Smashing Magazine</a></li>
+          <li><a href="https://css-tricks.com">CSS Tricks</a></li>
+          <li><a href="https://www.w3schools.com">W3 schools</a></li>
+          <li><a href="https://udemy.com">Udemy</a></li>
+        </ul>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy;2026 ⚒️ Munshimbwe Kafwanka ⚒️ Zambia</p>
+    <p class="last modified"> Last Modiefication: May, 2026<span id="lastModified"></span></p>
+  </footer>
 </body>
 </html>
