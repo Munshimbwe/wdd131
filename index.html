@@ -6,22 +6,25 @@
     <meta name="description" content="WDD 131 - Dynamic Web Fundamentals course homepage for Munshimbwe Kafwanka. This site serves as a hub for student projects, profiles info, and web resources.">
     <meta name="author" content="Munshimbwe Kafwanka">
     <title>WDD 131: Dynamic Web Fundamentals</title>
+    
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="styles/base.css">
     <script src="scripts/getdates.js" defer></script>
 </head>
 <body>
   <header>
     <div class="title-banner">
-        <h1>WDD 131: Dynamic Web Fundamentals</h1>
+        <h1><span id="course-title">WDD 131: Dynamic Web Fundamentals</span></h1>
     </div>
+    
     <nav>
       <ul>
         <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="https://instructure.com" target="_blank" rel="noopener">I-Learn</a></li>
-        <li><a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/2?lang=eng" target="_blank" rel="noopener">Scripture📖</a></li>
+        <li><a href="https://churchofjesuschrist.org" target="_blank" rel="noopener">Scripture📖</a></li>
         <li><a href="https://github.com" target="_blank" rel="noopener">Final Project</a></li>
       </ul>
     </nav>
@@ -32,7 +35,7 @@
 
     <div class="content-grid">
         <section class="card">
-          <div class="card-header">About Me</div>
+          <h2 class="card-header">About Me</h2>
           <div class="card-body">
             <div class="bio-block">
                 <img src="images/profile.jpg" alt="Munshimbwe's Profile Picture" class="profile-img">
@@ -52,15 +55,12 @@
         </section>
     
         <section class="card">
-          <div class="card-header">Web Dev Resources</div>
+          <h2 class="card-header">Web Dev Resources</h2>
           <div class="card-body resources-body">
             <ul>
               <li><a href="https://dev.to" target="_blank" rel="noopener">Dev.to Community</a></li>
               <li><a href="https://smashingmagazine.com" target="_blank" rel="noopener">Smashing Magazine</a></li>
-              <li><a href="https://css-tricks.com" target="_blank" rel="noopener">CSS Tricks</a></li>
               <li><a href="https://w3schools.com" target="_blank" rel="noopener">W3 Schools</a></li>
-              <li><a href="https://udemy.com" target="_blank" rel="noopener">Udemy</a></li>
-              <li><a href="https://picsum.photos" target="_blank" rel="noopener">Lorem Picsum Image Placeholder</a></li>
             </ul>
           </div>
         </section>
@@ -68,7 +68,7 @@
   </main>
 
   <footer>
-    <p>&copy;<span id="currentyear"></span> <span></span> ⚒️Munshimbwe Kafwanka ⚒️<span></span> Kabwe, Zambia</p>
+    <p>&copy;<span id="currentyear"></span> <span>&#9830;</span> Munshimbwe Kafwanka <span>&#9830;</span> Kabwe, Zambia</p>
     <p id="lastModified"></p>
   </footer>
 </body>
