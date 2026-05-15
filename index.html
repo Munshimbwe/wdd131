@@ -3,69 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WDD 131 - Dynamic Web Fundamentals - Munshimbwe Kafwanka</title>
-    <meta name="description" content="This is the index page for WDD 131 - Munshimbwe">
-    <meta name="author" content="Munshimbwe">
+    <meta name="description" content="WDD 131 - Dynamic Web Fundamentals course homepage for Munshimbwe Kafwanka. This site serves as a hub for student projects, profiles info, and web resources.">
+    <meta name="author" content="Munshimbwe Kafwanka">
+    <title>WDD 131: Dynamic Web Fundamentals</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/base.css">
     <script src="scripts/getdates.js" defer></script>
 </head>
 <body>
   <header>
-  <div class="course-banner">WDD 131: Dyanamic Web Fundamentals</div>
-  <nav>
-    <ul>
-      <li><a href="#">LinkedIn</a></li>
-      <li><a href="#">Canvas</a></li>
-      <li><a href="#">Scripture</a></li>
-      <li><a href="#">Final Project</a></li>
-    </ul>
-  </nav>
+    <div class="title-banner">
+        <h1>WDD 131: Dynamic Web Fundamentals</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://instructure.com" target="_blank" rel="noopener">I-Learn</a></li>
+        <li><a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/2?lang=eng" target="_blank" rel="noopener">Scripture📖</a></li>
+        <li><a href="https://github.com" target="_blank" rel="noopener">Final Project</a></li>
+      </ul>
+    </nav>
   </header>
   
-  <h1 class="stdent-name">Munshimbwe Kafwanka</h1>
+  <main>
+    <h2 class="student-name">Munshimbwe Kafwanka</h2>
 
-  <main class="grid-container">
-    <section class="card">
-      <div class="card-header">About Me</div>
-      <div class="card-body bio-section">
-        <p>My name is Munshimbwe Kafwanka. I was born in Kabwe Zambia</p>
-        <img src="images/profile.jpg" alt="Munshimbwe's Profile Picture" class="profile-img">
-
-
-        <h3>Kabwe, Zambia</h3>
-        <hr>
-        <div class="flag-content">
-          <figure>
-            <img src="images/zambia.webp" alt="Official flag of Zambia">
-            <figcaption>Official flag of Zambia</figcaption>
-          </figure>
-          <p>Zambia is the largest producer of copper in the world.</p>
-
-        </div>
-      </div>
-
-    </section>
-    <!--web dev resources section-->
-
-    <section class="card">
-      <div class="card-header">Web Dev Resources</div>
-      <div class="card-body">
-        <ul>
-          <li><a href="https://dev.to/">Dev.to Community</a></li>
-          <li><a href="https://www.smashingmagazine.com">Smashing Magazine</a></li>
-          <li><a href="https://css-tricks.com">CSS Tricks</a></li>
-          <li><a href="https://www.w3schools.com">W3 schools</a></li>
-          <li><a href="https://udemy.com">Udemy</a></li>
-        </ul>
-      </div>
-
-    </section>
-
+    <div class="content-grid">
+        <section class="card">
+          <div class="card-header">About Me</div>
+          <div class="card-body">
+            <div class="bio-block">
+                <img src="images/profile.jpg" alt="Munshimbwe's Profile Picture" class="profile-img">
+                <p>My name is Munshimbwe Kafwanka. I am student at BYU-Idaho studying Web Development.</p>
+            </div>
+            
+            <h3 class="location-heading">Kabwe, Zambia</h3>
+            
+            <div class="flag-block">
+                <figure class="flag-figure">
+                  <img src="images/zambia.webp" alt="Official flag of Zambia" class="flag-img">
+                  <figcaption>Official Flag of Zambia</figcaption>
+                </figure>
+                <p>Zambia is the largest producer of copper in the world. Kabwe is the capital of the Central Province of Zambia, known for its rich history and community.</p>
+            </div>
+          </div>
+        </section>
+    
+        <section class="card">
+          <div class="card-header">Web Dev Resources</div>
+          <div class="card-body resources-body">
+            <ul>
+              <li><a href="https://dev.to" target="_blank" rel="noopener">Dev.to Community</a></li>
+              <li><a href="https://smashingmagazine.com" target="_blank" rel="noopener">Smashing Magazine</a></li>
+              <li><a href="https://css-tricks.com" target="_blank" rel="noopener">CSS Tricks</a></li>
+              <li><a href="https://w3schools.com" target="_blank" rel="noopener">W3 Schools</a></li>
+              <li><a href="https://udemy.com" target="_blank" rel="noopener">Udemy</a></li>
+              <li><a href="https://picsum.photos" target="_blank" rel="noopener">Lorem Picsum Image Placeholder</a></li>
+            </ul>
+          </div>
+        </section>
+    </div>
   </main>
 
   <footer>
-    <p>&copy;2026 ⚒️ Munshimbwe Kafwanka ⚒️ Zambia</p>
-    <p class="last modified"> Last Modiefication: May, 2026<span id="lastModified"></span></p>
+    <p>&copy;<span id="currentyear"></span> <span></span> ⚒️Munshimbwe Kafwanka ⚒️<span></span> Kabwe, Zambia</p>
+    <p id="lastModified"></p>
   </footer>
 </body>
 </html>

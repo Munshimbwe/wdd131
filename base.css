@@ -1,51 +1,217 @@
-:root{
-    --primary-blue: #22466C;
-    --dark-gray: #333;
-    --light-gray: #f4f4f4;
-
+:root {
+    --primary-blue: #024a86;
+    --nav-dark: #222222;
+    --card-header-blue: #16528e;
+    --text-color: #333333;
+    --bg-color: #ffffff;
+    --border-color: #bbbbbb;
+    --yellow-accent: #e1ff00;
 }
 
-body{ font-family: sans-serife; text-align: center; margin: 0; }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-header { background: var(--dark-gray); color: white; }
-.course-banner { padding: 15px; font-size: 1.2rem; }
-nav { background: #444; }
-nav ul { list-style: none; display: flex; justify-content: center; padding: 10px; margin: 0; }
-nav a { color: white; text-decoration: none; padding: 0 20px; }
-
-.grid-container {
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
     display: flex;
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: auto;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    width: 100%;
+}
+
+.title-banner {
+    background-color: var(--primary-blue);
+    color: #ffffff;
+    text-align: center;
+    padding: 12px 0;
+}
+
+.title-banner h1 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+nav {
+    background-color: var(--nav-dark);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
     justify-content: space-around;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.student-name {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 400;
+    margin: 25px 0;
+    color: #111111;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 25px;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .card {
-    border: 1px solid #ddd;
+    background: #ffffff;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     overflow: hidden;
-    flex: 1;
-    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .card-header {
-    background: var(--primary-blue);
-    color: white;
+    background-color: var(--card-header-blue);
+    color: #ffffff;
+    text-align: center;
     padding: 10px;
-    font-weight: bold;
+    font-weight: 500;
+    font-size: 1.05rem;
 }
 
-.card-body { padding: 20px; text-align: left; }
+.card-body {
+    padding: 20px;
+}
 
-.profile-img { float: right; width: 120px; margin-left: 15px; }
+.bio-block {
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    float: right;
+    width: 120px;
+    height: auto;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+}
+
+.bio-block p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.location-heading {
+    text-align: center;
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin: 15px 0;
+}
+
+.flag-block {
+    overflow: hidden;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.flag-figure {
+    width: 150px;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.flag-img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #999999;
+}
+
+.flag-figure figcaption {
+    font-size: 0.75rem;
+    color: #666666;
+    margin-top: 4px;
+    line-height: 1.2;
+}
+
+.flag-block p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.resources-body {
+    padding: 30px 25px;
+}
+
+.resources-body ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.resources-body li {
+    margin-bottom: 8px;
+}
+
+.resources-body a {
+    color: #0000ee;
+    text-decoration: underline;
+    font-size: 0.95rem;
+}
+
+.resources-body a:hover {
+    color: #551a8b;
+}
 
 footer {
-    background: var(--primary-blue);
-    color: white;
-    padding: 20px;
-    margin-top: 20px
+    background-color: var(--primary-blue);
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
 }
 
-.last-modified { color: #fdfd96; font-size: 0.9rem}
+footer span {
+    font-size: 0.8rem;
+    vertical-align: middle;
+}
+
+#lastModified {
+    color: var(--yellow-accent);
+    font-size: 0.8rem;
+    margin-top: 4px;
+}
