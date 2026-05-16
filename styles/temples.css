@@ -14,13 +14,13 @@
 }
 
 body {
-  font-family: 'Crimson Pro', 'serif';
+  font-family: 'Crimson Pro', serif;
   background-color: var(--bg-color);
   color: var(--text-dark);
-  font-size: 48px;
+  font-size: 20px;
 }
 
-.logo-text, main h1,h2,h3,h4 {
+.logo-text, main h1, main h2, main h3, main h4 {
   font-family: 'Crimson Pro', serif;
 }
 
@@ -43,6 +43,7 @@ header {
   font-size: 1.5rem;
   font-weight: 600;
 }
+
 #menu-btn {
   background: none;
   border: none;
@@ -139,6 +140,7 @@ main h1 {
   padding-bottom: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
+
 .temple-card img {
   width: 100%;
   aspect-ratio: 3 / 2;
