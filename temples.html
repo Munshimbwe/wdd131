@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temple Album</title>
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Cinzel:wght@600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/temples.css">
+  <link rel="stylesheet" href="styles/temples-large.css" media="(min-width: 768px)">
+  <script src="scripts/temples.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <span class="logo-text">Temple Album</span>
+      <button id="menu-btn" aria-label="Toggle Navigation Options">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="nav-menu">
+        <a href="#" class="active">Home</a>
+        <a href="#">Old</a>
+        <a href="#">New</a>
+        <a href="#">Large</a>
+        <a href="#">Small</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Home</h1>
+    <div class="gallery-container">
+      
+      <figure class="temple-card">
+        <img src="images/temples_exteriors.webp" alt="Durban South Africa Temple" loading="lazy">
+        <figcaption>Durban South Africa</figcaption>
+      </figure>
+
+      <figure class="temple-card">
+        <img src="images/Cape-Town-temple.webp" alt="Cape Town South Africa Temple" loading="lazy">
+        <figcaption>Cape Town South Africa</figcaption>
+      </figure>
+
+      <figure class="temple-card">
+        <img src="images/johannesburg-temple.webp" alt="Johannesburg South Africa Temple" loading="lazy">
+        <figcaption>Johannesburg South Africa</figcaption>
+      </figure>
+
+      <figure class="temple-card">
+        <img src="images/DRC-kinshasa-temple.webp" alt="DRC Kinshasa Democratic Republic of Congo Temple" loading="lazy">
+        <figcaption>DRC Kinshasa Democratic Republic of Congo</figcaption>
+      </figure>
+
+      <figure class="temple-card">
+        <img src="images/tokyo-japan-temple.webp" alt="Tokyo Japan Temple" loading="lazy">
+        <figcaption>Tokyo Japan</figcaption>
+      </figure>
+
+      <figure class="temple-card">
+        <img src="images/london-temple (2).webp" alt="London Temple" loading="lazy">
+        <figcaption>London United Kingdom</figcaption>
+      </figure>
+
+      <figure class="temple-card">
+        <img src="images/Auckland-new-zealand (1).webp" alt="Auckland New Zealand Temple" loading="lazy">
+        <figcaption>Auckland New Zealand</figcaption>
+      </figure>
+
+      <figure class="temple-card">
+        <img src="images/houston-texas-temple.webp" alt="Houston Texas Temple" loading="lazy">
+        <figcaption>Houston Texas</figcaption>
+      </figure>
+
+      <figure class="temple-card">
+        <img src="images/idaho-falls-temple.webp" alt="Idaho Falls Idaho Temple" loading="lazy">
+        <figcaption>Idaho Falls Idaho</figcaption>
+      </figure>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="current-year"></span>⚒️Munshimbwe Kafwanka. Kabwe, Zambia⚒️</p>
+    <p>Last Modification: <span id="last-modified"></span></p>
+  </footer>
+
+</body>
+</html>

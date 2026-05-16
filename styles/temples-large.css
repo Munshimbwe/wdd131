@@ -1,0 +1,34 @@
+#menu-btn {
+  display: none !important;
+}
+
+#nav-menu {
+  display: flex;
+  flex-direction: row;
+  position: static;
+  width: auto;
+  background: none;
+}
+
+#nav-menu a {
+  border-top: none;
+  margin-left: 1.5rem;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+#nav-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+#nav-menu a.active {
+  background: none;
+  border-bottom: 2px solid var(--text-light);
+  border-radius: 0;
+}
+
+.gallery-container {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  max-width: 100%;
+  gap: 2rem;
+}
