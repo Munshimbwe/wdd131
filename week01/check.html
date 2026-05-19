@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madagascar Explorer</title>
+    <!-- Link to the external style sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <!-- Top Banner Header -->
+        <header>
+            <h1 id="country-title">Country</h1>
+        </header>
+
+        <!-- Main Workspace Frame -->
+        <div class="main-content">
+            <!-- Hero picture container stacks top in mobile viewports automatically -->
+            <img class="background-hero" id="bg-image" src="" alt="Country Backdrop">
+
+            <!-- Data Side Card Component -->
+            <div class="floating-card">
+                <div class="card-header">Data</div>
+                <div class="info-list" id="data-container">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+
+            <!-- Weather Side Card Component -->
+            <div class="floating-card">
+                <div class="card-header">
+                    <span>Weather</span>
+                    <img class="weather-icon" id="weather-icon" src="" alt="">
+                </div>
+                <div class="info-list" id="weather-container">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Red Footer Area -->
+        <footer>
+            <div id="footer-text">©2024 - Rubia Magdalena Francesco - Madagascar</div>
+            <div id="footer-date">Last Modification: 02/08/2024 22:47:47</div>
+        </footer>
+
+    </div>
+
+    <!-- Link to the external engine script -->
+    <script src="script.js"></script>
+</body>
+</html>
