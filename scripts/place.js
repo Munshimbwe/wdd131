@@ -6,8 +6,14 @@ const weatherContainer = document.getElementById("weather-container");
 const countryData = {
     "Area": "1,172 km²",
     "Population": "202,914",
-    "Language": "English, Bemba",
-    "Currency": "Zambian Kwacha (ZMW)"
+    "Languages": "English, Bemba",
+    "Currency": "Zambian Kwacha (ZMW)",
+    "History": "Kabwe, formerly known as Broken Hill",
+    "Timezone": "UTC+2",
+    "Calling Code": "+260",
+    "National Animal": "African Fish Eagle",
+    "Internet": "Zambia"
+
 };
 
 const weatherData = {
