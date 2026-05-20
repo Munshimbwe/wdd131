@@ -3,19 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kabwe Explorer</title>
-    <link rel="stylesheet" href="styles/country-page.css">
+    <title>Kabwe</title>
+    <meta name="description" content="A page showcasing Kabwe in Zambia located in Southern Africa, demonstrating responsive design techniques for WDD 131: Dynamic Web Fundamentals. This page includes image of national animal and adjusts layout based on screen size.">
+    <meta name="author" content="Munshimbwe Kafwanka">
+    <link rel="stylesheet" href="styles/place.css">
+    <script src="scripts/place.js" defer></script>
 </head>
 <body>
 
     <div class="dashboard-container">
         
         <header>
-            <h1 id="country-title">Country</h1>
+            <h1 id="place-title">Zambia</h1>
         </header>
 
-        <div class="main-content">
-            <img class="background-hero" id="bg-image" src="" alt="Location Backdrop">
+        <main class="main-content">
+            <picture>
+                <source srcset="images/national-animal.webp" media="(min-width: 800px)">
+                <img class="background-hero" id="bg-image" src="images/national-animal.webp" alt="official national animal" width="400" height="300" loading="lazy">
+            </picture>
 
             <div class="floating-card">
                 <div class="card-header">Data</div>
@@ -25,11 +31,11 @@
             <div class="floating-card">
                 <div class="card-header">
                     <span>Weather</span>
-                    <img class="weather-icon" id="weather-icon" src="images/weather-icon.webp" alt="Weather Icon">
+                    <img class="weather-icon" id="weather-icon" src="images/weather.svg" alt="Weather Icon" width="30" height="30">
                 </div>
                 <div class="info-list" id="weather-container"></div>
             </div>
-        </div>
+        </main>
 
         <footer>
             <div id="footer-text">©2026 - Munshimbwe Kafwanka - Kabwe, Zambia</div>
@@ -38,6 +44,5 @@
 
     </div>
 
-    <script src="scripts/country-page.js"></script>
 </body>
 </html>
