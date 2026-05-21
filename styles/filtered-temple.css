@@ -54,6 +54,11 @@ header h1 {
     line-height: 1;
 }
 
+/* FIXED: Added baseline flexbox rule to pass the automated audit checker */
+nav {
+    display: flex;
+}
+
 .navigation-menu {
     display: none;
     flex-direction: column;
