@@ -142,33 +142,47 @@ function getTempleYear(dateString) {
     return parseInt(dateString, 10);
 }
 
+
+const navLinksList = document.querySelectorAll(".navigation-menu a");
+
+function setActiveLink(clickedId) {
+    navLinksList.forEach(link => link.classList.remove("active"));
+    document.getElementById(clickedId).classList.add("active");
+}
+
 document.getElementById("home-filter").addEventListener("click", (e) => {
     e.preventDefault();
+    setActiveLink("home-filter");
     displayTemples(temples);
 });
 
 document.getElementById("old-filter").addEventListener("click", (e) => {
     e.preventDefault();
+    setActiveLink("old-filter");
     const oldTemples = temples.filter(temple => getTempleYear(temple.dedicated) < 1900);
     displayTemples(oldTemples);
 });
 
 document.getElementById("new-filter").addEventListener("click", (e) => {
     e.preventDefault();
+    setActiveLink("new-filter");
     const newTemples = temples.filter(temple => getTempleYear(temple.dedicated) > 2000);
     displayTemples(newTemples);
 });
 
 document.getElementById("large-filter").addEventListener("click", (e) => {
     e.preventDefault();
+    setActiveLink("large-filter");
     const largeTemples = temples.filter(temple => temple.area > 90000);
     displayTemples(largeTemples);
 });
 
 document.getElementById("small-filter").addEventListener("click", (e) => {
     e.preventDefault();
+    setActiveLink("small-filter");
     const smallTemples = temples.filter(temple => temple.area < 10000);
     displayTemples(smallTemples);
 });
 
+document.getElementById("home-filter").classList.add("active");
 displayTemples(temples);
