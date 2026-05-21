@@ -2,10 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> >
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Images Gallery</title>
+    <meta name="description" content="A standalone webpage demonstrating responsive design techniques using a picture element to load small, medium, and large hero images based on viewport size.">
+    <meta name="author" content="Munshimbwe Kafwanka">
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js" defer></script>
 </head>
 <body>
-    
+
+    <div class="dashboard-container">
+        
+        <header>
+            <h1 id="place-title">Responsive Image Showcase</h1>
+        </header>
+
+        <main class="main-content">
+            <article class="intro-article">
+                <h2>Understanding Responsive Images</h2>
+                <p>Modern web design requires serving the right media asset size to the right device profile. This process drastically reduces load times on cellular connections while ensuring high-resolution desktop screens receive clear visuals without pixelation artifacts.</p>
+            </article>
+
+            <picture class="hero-wrapper">
+                <source srcset="images/hero-large.webp" media="(min-width: 1000px)">
+                <source srcset="images/hero-medium.webp" media="(min-width: 600px)">
+                <img class="background-hero" id="bg-image" src="images/small-hero.webp" alt="Showcase hero visual display" width="400" height="300" loading="lazy">
+            </picture>
+
+            <article class="details-article">
+                <h2>The Art of Web Performance Optimization</h2>
+                <p>By relying strictly on semantic HTML structure like the picture element, browsers evaluate the current viewport width and determine layout constraints before initiating a network download pipeline. This targeted execution pipeline ensures that multi-megabyte image assets are never mistakenly transferred down to thin client responsive screens.</p>
+            </article>
+
+            <div class="floating-card">
+                <div class="card-header">Media Asset Metadata</div>
+                <div class="info-list" id="data-container"></div>
+            </div>
+        </main>
+
+        <footer>
+            <div id="footer-text">©2026 - Munshimbwe Kafwanka - WDD 131 Project</div>
+            <div id="footer-date">Last Modification: --/--/---- --:--:--</div>
+        </footer>
+
+    </div>
+
 </body>
 </html>

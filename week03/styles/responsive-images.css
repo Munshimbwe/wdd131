@@ -1,0 +1,128 @@
+:root {
+    --primary-color: #8b0000;
+    --accent-color: #2e7d32;
+    --text-color: #222222;
+    --bg-color: #f1f8e9;
+    --card-bg: #ffffff;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 4px solid var(--accent-color);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+article {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 5px solid var(--accent-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+article h2 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+.hero-wrapper {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.background-hero {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.floating-card {
+    background-color: var(--card-bg);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px;
+    font-weight: bold;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.info-list {
+    padding: 15px;
+}
+
+.info-list p {
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+    border-top: 4px solid var(--accent-color);
+}
+
+@media (min-width: 768px) {
+    .main-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .intro-article,
+    .hero-wrapper {
+        grid-column: span 2;
+    }
+
+    .details-article,
+    .floating-card {
+        grid-column: span 1;
+    }
+}
+
+@media (min-width: 1000px) {
+    .background-hero {
+        max-height: 550px;
+    }
+}
