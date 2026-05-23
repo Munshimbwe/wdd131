@@ -1,6 +1,6 @@
 :root {
-    --primary-color:hwb(135 4% 66%);
-    --secondary-color: red;
+    --primary-color: #0b4519;
+    --secondary-color: rgb(134, 64, 64);
     --accent-color: #ffcd00;
     --text-color: #333333;
     --bg-color: #f4f4f4;
