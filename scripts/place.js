@@ -21,6 +21,15 @@ const weatherData = {
     "Wind": 8 
 };
 
+const weatherIcons = {
+    "Sunny": "☀️",
+    "Partly Sunny": "⛅",
+    "Cloudy": "☁️",
+    "Rainy": "🌧️",
+    "Snowy": "❄️",
+    "Thunderstorm": "⛈️"
+};
+
 let dataHTML = "";
 for (const [key, value] of Object.entries(countryData)) {
     dataHTML += `<p><strong>${key}:</strong> ${value}</p>`;
@@ -36,10 +45,11 @@ function calculateWindChill(temp, wind) {
 }
 
 const windChillValue = calculateWindChill(weatherData.Temperature, weatherData.Wind);
+const currentIcon = weatherIcons[weatherData.Condition] || "🌡️";
 
 weatherContainer.innerHTML = `
     <p><strong>Temperature:</strong> ${weatherData.Temperature} °C</p>
-    <p><strong class="weather-label">Condition:</strong> ${weatherData.Condition}</p>
+    <p><strong>Condition:</strong> ${currentIcon} ${weatherData.Condition}</p>
     <p><strong>Wind:</strong> ${weatherData.Wind} km/h</p>
     <p><strong>Wind Chill:</strong> ${windChillValue}</p>
 `;

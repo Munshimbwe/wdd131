@@ -1,0 +1,49 @@
+/* Page Setup */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #111;
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Layout Constraints */
+main {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Image Presentation & Single Centered Column */
+img {
+    display: block;
+    width: 400px;
+    height: 600px;
+    margin: 40px auto;
+    background-color: #000; /* Canvas layer for the black background */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    
+    /* Animation Assignment */
+    animation: fadeFromBlack 2s ease-in-out;
+}
+
+/* Footer Styling */
+footer {
+    margin-top: 50px;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+/* Fade From Black Animation Keyframes */
+@keyframes fadeFromBlack {
+    0% {
+        opacity: 0;
+        filter: brightness(0);
+    }
+    100% {
+        opacity: 1;
+        filter: brightness(1);
+    }
+}
