@@ -4,35 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Temple Album</title>
-    <meta name="description" content=" A dynamic, responsive portal displaying filtered historical temple data generated via array iterations for WDD 131.">
-    <meta name="author" content="Munshimbwe Kafwanka">
-    <link rel="stylesheet" href="styles/filtered-temple.css">
-    <script src="scripts/filtered-temples.js" defer></script>
+    <meta name="description" content="An enhanced picture album showcasing various LDS temples with dynamic data filtering, lazy loading, and responsive web design.">
+    <link rel="stylesheet" href="../styles/filtered-temple.css">
+    <script src="../scripts/filtered-temples.js" defer></script>
 </head>
 <body>
+    <header>
+    <h1>Temple Album</h1>
+    <nav>
+        <button id="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
+        <ul id="nav-links">
+            <li><button id="filter-home" class="active">Home</button></li>
+            <li><button id="filter-old">Old</button></li>
+            <li><button id="filter-new">New</button></li>
+            <li><button id="filter-large">Large</button></li>
+            <li><button id="filter-small">Small</button></li>
+        </ul>
+    </nav>
+</header>
 
-    <div class="dashboard-container">
-        
-        <header>
-            <h1>Temple Album</h1>
-            <button id="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
-            <nav class="navigation-menu" id="nav-links">
-                <a href="#" id="home-filter">Home</a>
-                <a href="#" id="old-filter">Old</a>
-                <a href="#" id="new-filter">New</a>
-                <a href="#" id="large-filter">Large</a>
-                <a href="#" id="small-filter">Small</a>
-            </nav>
-        </header>
-
-        <main class="main-content" id="temple-gallery-container"></main>
-
-        <footer>
-            <div id="footer-text">©2026 - Munshimbwe Kafwanka - WDD 131 | ⚒️ Kabwe, Zambia ⚒️ \</div>
-            <div id="footer-date">Last Modification: --/--/---- --:--:--</div>
-        </footer>
-
-    </div>
-
+    <main>
+        <div id="temple-container"></div>
+    </main>
+    <footer>
+        <p>&copy; 2026 | Munshimbwe - WDD 131 | ⚒️ Kabwe, Zambia ⚒️</p>
+        <p>Last Modified: <span id="lastModified"></span></p>
+    </footer>
 </body>
 </html>
