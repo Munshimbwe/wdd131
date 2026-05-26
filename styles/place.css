@@ -1,6 +1,6 @@
 :root {
     --primary-color: #0b4519;
-    --secondary-color: rgb(134, 64, 64);
+    --secondary-color: #864040;
     --accent-color: #ffcd00;
     --text-color: #333333;
     --bg-color: #f4f4f4;
@@ -28,7 +28,7 @@ body {
 
 header {
     background-color: var(--secondary-color);
-    color: white;
+    color: #ffffff;
     padding: 20px;
     text-align: center;
 }
@@ -54,7 +54,7 @@ header h1::after {
 
 .floating-card {
     background-color: var(--card-bg);
-    border: 1px solid #ddd;
+    border: 1px solid #dddddd;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     overflow: hidden;
@@ -62,12 +62,17 @@ header h1::after {
 
 .card-header {
     background-color: var(--primary-color);
-    color: white;
+    color: #ffffff;
     padding: 12px;
     font-weight: bold;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.weather-label::after {
+    content: " ☀️";
+    font-size: 1.1rem;
 }
 
 .info-list {
@@ -85,7 +90,7 @@ header h1::after {
 
 footer {
     background-color: var(--secondary-color);
-    color: white;
+    color: #ffffff;
     text-align: center;
     padding: 15px;
     margin-top: 20px;
