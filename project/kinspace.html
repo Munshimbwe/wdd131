@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>KinSpace - Family Memory Wall</title>
-    <link rel="stylesheet" href="style.css">
+    <title>KinSpace - Safe Family Social Networking</title>
+    <meta name="description" content="A secure, moderated digital space where kids explore and families stay connected safely.">
+    <meta name="keywords" content="family social media, safe networking for kids, parental controls, private family sharing">
+    <meta name="author" content="Munshimbwe Kafwanka">
+    <link rel="stylesheet" href="../project/styles/siteplan.css">
 </head>
 <body>
     <header>
         <nav class="navbar">
             <div class="logo">👨‍👩‍👧‍👦 KinSpace</div>
+            
             <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+
             <div class="nav-links" id="navLinks">
-                <a href="index.html">🏠 Home</a>
+                <a href="#features">✨ Features</a>
                 <a href="register.html">📝 Register</a>
                 <a href="gallery.html">🖼️ Memory Wall</a>
                 <a href="dashboard.html">🛡️ Parent Dashboard</a>
@@ -35,31 +40,52 @@
             </div>
         </aside>
 
-        <section class="tool-section">
-            <h2 id="h-upload-memory">Post a New Family Memory 📸</h2>
-            <p>Select an image and write a safe description to add to your private family feed.</p>
-            <form id="uploadForm" class="form-container">
-                <div class="form-group">
-                    <label for="imageCaption">Memory Caption:</label>
-                    <input type="text" id="imageCaption" placeholder="What makes this day special? ✨" required>
-                </div>
-                <button type="submit" class="btn-submit">Share to Family Feed 🚀</button>
-            </form>
+        <section class="hero">
+            <h1>Social Media Built for Families. 🚀</h1>
+            <p>A secure, moderated digital space where kids explore and families stay connected. 💖</p>
+            <button class="btn-cta" id="ctaBtn">Create Family Account 🎉</button>
         </section>
 
-        <section class="tool-section">
-            <h2 id="h-shared-feed">Shared Family Feed 🏡</h2>
-            <div id="galleryGrid" class="features-grid" style="padding: 20px 0;">
-                <div class="card">
-                    <div style="font-size:60px; margin-bottom:15px;">🚲</div>
-                    <h3>Timmy's First Bike Ride!</h3>
-                    <button class="btn-theme reaction-btn" style="margin-left:0; margin-top:10px;">❤️ Like (<span>3</span>)</button>
+        <section id="features" class="features-grid">
+            <div class="card">
+                <h3 id="h-private-hubs">🔒 Private Hubs</h3>
+                <p>Share photos and updates exclusively with verified relatives. 🏡</p>
+            </div>
+            <div class="card">
+                <h3 id="h-kids-explore">🎨 Kids' Explore</h3>
+                <p>Curated, educational content with zero toxic algorithms. 📚</p>
+            </div>
+            <div class="card">
+                <h3 id="h-parent-control">🛡️ Parent Control</h3>
+                <p>Manage screen time and approve connections instantly. 📱</p>
+            </div>
+        </section>
+
+        <section id="weather-section" class="tool-section">
+            <h2 id="h-weather-safety">Outdoor Play Safety Check 🌦️</h2>
+            <p>Check the conditions before sending kids outside to play.</p>
+            <div class="weather-container">
+                <div class="weather-info">
+                    <span id="weatherIcon" class="weather-icon">☀️</span>
+                    <span id="weatherTemp">22°C</span>
                 </div>
-                <div class="card">
-                    <div style="font-size:60px; margin-bottom:15px;">🎂</div>
-                    <h3>Grandma's 70th Birthday Party</h3>
-                    <button class="btn-theme reaction-btn" style="margin-left:0; margin-top:10px;">❤️ Like (<span>8</span>)</button>
+                <div class="chill-calculator">
+                    <h4>Calculate Wind Chill Factor 💨</h4>
+                    <input type="number" id="tempInput" placeholder="Temp (°C)" value="5">
+                    <input type="number" id="windInput" placeholder="Wind (km/h)" value="20">
+                    <button id="calcChillBtn">Calculate Chill</button>
+                    <p id="chillResult">Wind Chill: --</p>
                 </div>
+            </div>
+        </section>
+
+        <section id="ai-section" class="tool-section ai-box">
+            <h2 id="h-ask-ai">🤖 Ask KinSpace AI (Child-Safe Assistant)</h2>
+            <p>Got a tough question? Ask our heavily moderated, kid-friendly AI guide! 🧠</p>
+            <div class="ai-interface">
+                <input type="text" id="aiQuery" placeholder="Ask something (e.g., Why is the sky blue? or a bad word...)">
+                <button id="askAiBtn">Ask AI ✨</button>
+                <div class="ai-response" id="aiResponse">Waiting for your question... 💤</div>
             </div>
         </section>
     </main>
@@ -103,6 +129,7 @@
         </div>
     </div>
 
+    <script type="module" src="../project/scripts/utils.js"></script>
     <script type="module" src="../project/scripts/main.js"></script>
 </body>
 </html>
