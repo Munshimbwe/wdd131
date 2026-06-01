@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>KinSpace - Parent Control Center</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">👨‍👩‍👧‍👦 KinSpace</div>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">🏠 Home</a>
+                <a href="index.html#account-section">📝 Register</a>
+                <a href="gallery.html">🖼️ Memory Wall</a>
+                <a href="dashboard.html">🛡️ Parent Dashboard</a>
+                <button id="themeToggle" class="btn-theme">🌓 Mode</button>
+                <a href="#" class="btn-login" id="loginBtn">🔐 Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <aside class="toc-sidebar">
+            <div class="toc-container">
+                <h4>📋 Navigation Guide</h4>
+                <ul id="tocList"></ul>
+            </div>
+        </aside>
+
+        <section class="tool-section">
+            <h2 id="h-screen-rules">Screen Time & Minor Protections ⏱️</h2>
+            <p>Set global platform rules for child accounts linked to your family unit.</p>
+            <div class="form-container" style="max-width:400px;">
+                <div class="form-group">
+                    <label for="timeSlider">Daily Limit: <span id="timeDisplay">60</span> minutes</label>
+                    <input type="range" id="timeSlider" min="15" max="180" value="60" style="cursor:pointer;">
+                </div>
+                <div class="form-group" style="flex-direction:row; align-items:center; gap:10px; margin-top:10px;">
+                    <input type="checkbox" id="curfewCheck" checked style="width:auto;">
+                    <label for="curfewCheck" style="margin-bottom:0;">Activate Bedtime Curfew (21:00 - 07:00)</label>
+                </div>
+            </div>
+        </section>
+
+        <section class="tool-section">
+            <h2 id="h-member-approvals">Pending Household Connection Requests 👥</h2>
+            <p>Approve external connection requests to verify close family relatives.</p>
+            <div style="overflow-x:auto; margin-top:20px;">
+                <table style="width:100%; border-collapse:collapse; min-width:400px;" id="requestTable">
+                    <thead>
+                        <tr style="border-bottom:2px solid var(--dark); text-align:left;">
+                            <th style="padding:12px;">Applicant</th>
+                            <th style="padding:12px;">Stated Relationship</th>
+                            <th style="padding:12px;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom:1px solid #ddd;">
+                            <td style="padding:12px;">Uncle Robert</td>
+                            <td style="padding:12px;">Mother's Brother</td>
+                            <td style="padding:12px;"><button class="btn-submit approval-btn" style="padding:6px 12px; font-size:13px; margin:0; background-color:var(--primary);">Approve ✅</button></td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #ddd;">
+                            <td style="padding:12px;">Aunt Sarah</td>
+                            <td style="padding:12px;">Cousin</td>
+                            <td style="padding:12px;"><button class="btn-submit approval-btn" style="padding:6px 12px; font-size:13px; margin:0; background-color:var(--primary);">Approve ✅</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 KinSpace Platform. All rights reserved. 🛡️</p>
+        <p class="meta-text">Page Last Modified: <span id="lastModifiedDate"></span></p>
+    </footer>
+
+    <div id="loginModal" class="modal-overlay">
+        <div class="modal-content">
+            <span id="closeModalBtn" class="modal-close">&times;</span>
+            <h3>🔐 Secure Portal Access</h3>
+            <p id="modalSubHeading">Select account type and input details to access your family hub.</p>
+            
+            <form id="modalLoginForm" class="form-container">
+                <div class="form-group">
+                    <label for="modalRoleSelect">Profile Type:</label>
+                    <select id="modalRoleSelect" class="form-select" required>
+                        <option value="" disabled selected>Choose role...</option>
+                        <option value="Parent">Parent / Guardian 🛡️</option>
+                        <option value="Child">Child User 🎨</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="modalEmailInput">Email Address / Username:</label>
+                    <input type="text" id="modalEmailInput" placeholder="Enter account email" required>
+                </div>
+                <button type="submit" class="btn-submit" style="background-color: var(--primary);">Request Security Code 📲</button>
+                <div id="modalFormFeedback" class="form-feedback"></div>
+            </form>
+
+            <form id="modal2FAForm" class="form-container" style="display: none;">
+                <div class="form-group">
+                    <label for="modalOtpInput">Enter 4-Digit Verification Code:</label>
+                    <input type="text" id="modalOtpInput" maxlength="4" placeholder="0000" style="text-align: center; font-size: 24px; letter-spacing: 10px;" required>
+                </div>
+                <button type="submit" class="btn-submit" style="background-color: var(--secondary);">Verify & Login 🔓</button>
+                <div id="modal2FAFeedback" class="form-feedback"></div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
