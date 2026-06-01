@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Product Review Form</title>
+    <link rel="stylesheet" href="../styles/form.css">
+</head>
+<body>
+
+    <header>
+        <h1>Product Review</h1>
+    </header>
+
+    <main>
+        <div class="form-card">
+            <form id="reviewForm" method="get" action="review.html">
+                
+                <div class="form-group">
+                    <label for="productName">Product Name</label>
+                    <select id="productName" name="productName" required tabindex="1">
+                        <option value="" disabled selected>Select a Product ...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Overall Rating</label>
+                    <div class="rating-row">
+                        <div class="rating-item">
+                            <label for="rate1" class="star-label">☆</label>
+                            <input type="radio" id="rate1" name="overallRating" value="1" required tabindex="2">
+                        </div>
+                        <div class="rating-item">
+                            <label for="rate2" class="star-label">☆☆</label>
+                            <input type="radio" id="rate2" name="overallRating" value="2" tabindex="3">
+                        </div>
+                        <div class="rating-item">
+                            <label for="rate3" class="star-label">☆☆☆</label>
+                            <input type="radio" id="rate3" name="overallRating" value="3" tabindex="4">
+                        </div>
+                        <div class="rating-item">
+                            <label for="rate4" class="star-label">☆☆☆☆</label>
+                            <input type="radio" id="rate4" name="overallRating" value="4" tabindex="5">
+                        </div>
+                        <div class="rating-item">
+                            <label for="rate5" class="star-label">☆☆☆☆☆</label>
+                            <input type="radio" id="rate5" name="overallRating" value="5" tabindex="6">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="installDate">Date of Installation</label>
+                    <input type="date" id="installDate" name="installDate" required tabindex="7">
+                </div>
+
+                <div class="form-group">
+                    <label>Which features did you find useful in the product?<br><span class="sub-label">(Check all that apply)</span></label>
+                    <div class="checkbox-group">
+                        <label for="featDurability"><input type="checkbox" id="featDurability" name="features" value="durability" tabindex="8"> Durability</label>
+                        <label for="featEase"><input type="checkbox" id="featEase" name="features" value="ease-of-use" tabindex="9"> Ease of Use</label>
+                        <label for="featPerformance"><input type="checkbox" id="featPerformance" name="features" value="performance" tabindex="10"> Performance</label>
+                        <label for="featDesign"><input type="checkbox" id="featDesign" name="features" value="design" tabindex="11"> Design</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="writtenReview">Written Review <span class="optional-label">(Optional)</span></label>
+                    <textarea id="writtenReview" name="writtenReview" rows="5" tabindex="12"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="reviewerName">Your Name <span class="optional-label">(Optional)</span></label>
+                    <input type="text" id="reviewerName" name="reviewerName" placeholder="Enter name" tabindex="13">
+                </div>
+
+                <input type="submit" value="Post Review" class="btn-submit" tabindex="14">
+
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy;2026 ⚒️ Munshimbwe Kafwanka ⚒️ <br>Kabwe, Zambia</p>
+        <p class="meta-text">Last Modification: <span id="lastModifiedDate"></span></p>
+    </footer>
+
+    <script type="module" src="../scripts/main.js"></script>
+    <script type="module" src="../scripts/utils.js"></script>
+</body>
+</html>
