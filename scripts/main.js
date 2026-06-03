@@ -18,8 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
         counterDisplay.textContent = totalReviews;
     }
 
-    const lastModifiedDisplay = document.getElementById("lastModifiedDate");
-    if (lastModifiedDisplay) {
-        lastModifiedDisplay.textContent = getFormattedLastModified();
-    }
+    const lastMod = document.getElementById("lastModified");
+  if (lastMod) lastMod.textContent = document.lastModified;
 });
