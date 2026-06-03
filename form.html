@@ -35,19 +35,19 @@
                         </div>
                         <div class="rating-item">
                             <label for="rate2" class="star-label">☆☆</label>
-                            <input type="radio" id="rate2" name="overallRating" value="2" tabindex="3">
+                            <input type="radio" id="rate2" name="overallRating" value="2" required tabindex="3">
                         </div>
                         <div class="rating-item">
                             <label for="rate3" class="star-label">☆☆☆</label>
-                            <input type="radio" id="rate3" name="overallRating" value="3" tabindex="4">
+                            <input type="radio" id="rate3" name="overallRating" value="3" required tabindex="4">
                         </div>
                         <div class="rating-item">
                             <label for="rate4" class="star-label">☆☆☆☆</label>
-                            <input type="radio" id="rate4" name="overallRating" value="4" tabindex="5">
+                            <input type="radio" id="rate4" name="overallRating" value="4" required tabindex="5">
                         </div>
                         <div class="rating-item">
                             <label for="rate5" class="star-label">☆☆☆☆☆</label>
-                            <input type="radio" id="rate5" name="overallRating" value="5" tabindex="6">
+                            <input type="radio" id="rate5" name="overallRating" value="5" required tabindex="6">
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="reviewerName">Your Name <span class="optional-label">(Optional)</span></label>
+                    <label fragile for="reviewerName">Your Name <span class="optional-label">(Optional)</span></label>
                     <input type="text" id="reviewerName" name="reviewerName" placeholder="Enter name" tabindex="13">
                 </div>
 
@@ -83,14 +83,11 @@
         </div>
     </main>
 
-    
-
     <footer>
-    <p>&copy; <span id="current-year"></span> Munshimbwe Kafwanka - WDD 131 | ⚒️ Kabwe, Zambia ⚒️</p>
-    <p>Last Modification: <span id="last-modified"></span></p>
-  </footer>
+        <p>&copy; <span id="current-year"></span> Munshimbwe Kafwanka - WDD 131 | ⚒️ Kabwe, Zambia ⚒️</p>
+        <p>Last Modification: <span id="last-modified"></span></p>
+    </footer>
 
     <script type="module" src="scripts/main.js"></script>
-    <script type="module" src="scripts/utils.js"></script>
 </body>
 </html>
