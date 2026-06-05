@@ -135,6 +135,41 @@ textarea {
     background-color: #dbdbdb;
 }
 
+
+.confirmation-main {
+    text-align: center;
+}
+
+.success-title {
+    color: var(--brand-dark);
+    margin-top: 0;
+}
+
+.counter-box {
+    background: white;
+    padding: 20px;
+    border-radius: 4px;
+    margin: 20px 0;
+    border-left: 4px solid var(--brand-dark);
+}
+
+.counter-text {
+    margin: 0;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#reviewCounterDisplay {
+    color: #E67E22;
+}
+
+.confirmation-btn {
+    display: inline-block;
+    text-decoration: none;
+    width: auto;
+    padding: 10px 25px;
+}
+
 footer {
     background-color: var(--brand-dark);
     color: white;

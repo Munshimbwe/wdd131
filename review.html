@@ -6,6 +6,7 @@
     <meta name="description" content="A confirmation page for product review submissions in WDD 131, displaying total reviews submitted and last modification date.">
     <title>Review Submitted Successfully</title>
     <link rel="stylesheet" href="styles/form.css">
+    <script type="module" src="scripts/main.js"></script>
 </head>
 <body>
 
@@ -13,21 +14,20 @@
         <h1>Review Confirmation</h1>
     </header>
 
-    <main style="text-align: center;">
+    <main class="confirmation-main">
         <div class="form-card">
-            <h2 style="color: var(--brand-dark); margin-top: 0;">🎉 Submission Successful!</h2>
+            <h2 class="success-title">🎉 Submission Successful!</h2>
             <p>Thank you for submitting your product rating layout evaluation data.</p>
-            <div style="background: white; padding: 20px; border-radius: 4px; margin: 20px 0; border-left: 4px solid var(--brand-dark);">
-                <p style="margin: 0; font-weight: bold; font-size: 18px;">Total Reviews Completed: <span id="reviewCounterDisplay" style="color: #E67E22;">0</span></p>
+            <div class="counter-box">
+                <p class="counter-text">Total Reviews Completed: <span id="reviewCounterDisplay">0</span></p>
             </div>
-            <a href="form.html" class="btn-submit" style="display: inline-block; text-decoration: none; width: auto; padding: 10px 25px;">Submit Another Review</a>
+            <a href="form.html" class="btn-submit confirmation-btn">Submit Another Review</a>
         </div>
     </main>
 
-        <footer>
-            <p>&copy; <span id="currentYear"></span> Munshimbwe Kafwanka - WDD 131 | ⚒️ Kabwe, Zambia ⚒️</p>
-            <p>Last Modified: <span id="lastModified"></span></p>
-
-    <script type="module" src="scripts/main.js"></script>
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Munshimbwe Kafwanka - WDD 131 | ⚒️ Kabwe, Zambia ⚒️</p>
+        <p>Last Modified: <span id="lastModified"></span></p>
+    </footer>
 </body>
 </html>
