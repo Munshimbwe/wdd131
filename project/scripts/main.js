@@ -1,4 +1,4 @@
-import { calculateWindChill, getFormattedLastModified, generateTableOfContentsData, processLoginVerification } from './utils.js';
+import { calculateWindChill, generateTableOfContentsData, processLoginVerification } from './utils.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     
@@ -29,59 +29,92 @@ document.addEventListener("DOMContentLoaded", () => {
     if (hamburgerBtn && navLinks) {
         hamburgerBtn.addEventListener("click", () => {
             const isOpen = navLinks.classList.toggle("open");
+            hamburgerBtn.classList.toggle("open");
             hamburgerBtn.setAttribute("aria-expanded", isOpen);
         });
     }
 
-    const aiForm = document.getElementById("aiForm");
-    const aiQuery = document.getElementById("aiQuery");
-    const aiResponse = document.getElementById("aiResponse");
-    const answersDatabase = {
-        "why is the sky blue": "The sky is blue because gases in Earth's atmosphere scatter sunlight in all directions, and blue light is scattered more than other colors because it travels as shorter, smaller waves! 🌌",
-        "how far is the moon": "The Moon is about 384,400 kilometers away from Earth. That is like driving around the world 10 times! 🌙",
-        "what is photosynthesis": "Photosynthesis is how plants use sunlight, water, and air to make their own food and release fresh oxygen for us to breathe! 🌱"
-    };
-    const restrictedWords = ["badword", "toxic", "hate", "stupid"];
+    const uploadForm = document.getElementById("uploadForm");
+    const galleryGrid = document.getElementById("galleryGrid");
 
-    if (aiForm && aiQuery && aiResponse) {
-        aiForm.addEventListener("submit", (event) => {
-            event.preventDefault();
-            const rawInput = aiQuery.value.trim();
-            const normalizedQuery = rawInput.toLowerCase().replace(/[?.,!]/g, '');
+    let memoriesDatabase = JSON.parse(localStorage.getItem("kinspaceMemories")) || [
+        { id: 1, isPlaceholder: true, placeholder: "🚲", title: "Timmy's First Bike Ride!", likes: 3 },
+        { id: 2, isPlaceholder: true, placeholder: "🎂", title: "Grandma's 70th Birthday Party", likes: 8 }
+    ];
 
-            if (!rawInput) {
-                aiResponse.textContent = "Please enter a question first! ⚠️";
-                return;
-            }
+    function renderGalleryFeed() {
+        if (!galleryGrid) return;
+        galleryGrid.innerHTML = "";
 
-            const containsRestricted = restrictedWords.some(word => normalizedQuery.includes(word));
-            if (containsRestricted) {
-                aiResponse.textContent = "That question contains terms not suitable for our safe space. Let's keep things kind and educational! 🛡️";
-                aiQuery.value = '';
-                return;
-            }
+        memoriesDatabase.forEach(memory => {
+            const card = document.createElement("div");
+            card.className = "card gallery-item-card";
 
-            if (answersDatabase[normalizedQuery]) {
-                aiResponse.textContent = answersDatabase[normalizedQuery];
+            if (memory.isPlaceholder) {
+                const iconDiv = document.createElement("div");
+                iconDiv.className = "gallery-card-icon";
+                iconDiv.textContent = memory.placeholder;
+                card.appendChild(iconDiv);
             } else {
-                aiResponse.textContent = `"${rawInput}" is not a question I can verify right now. Try asking "Why is the sky blue?" or "How far is the Moon!" 📚`;
+                const img = document.createElement("img");
+                img.src = memory.imageStream;
+                img.alt = memory.title;
+                img.className = "gallery-card-image";
+                img.loading = "lazy";
+                card.appendChild(img);
             }
+
+            const h3 = document.createElement("h3");
+            h3.textContent = memory.title;
+
+            const likeBtn = document.createElement("button");
+            likeBtn.className = "btn-theme reaction-btn";
+            likeBtn.innerHTML = `❤️ Like (<span>${memory.likes}</span>)`;
+            
+            likeBtn.addEventListener("click", () => {
+                memory.likes++;
+                localStorage.setItem("kinspaceMemories", JSON.stringify(memoriesDatabase));
+                renderGalleryFeed();
+            });
+
+            card.appendChild(h3);
+            card.appendChild(likeBtn);
+            galleryGrid.appendChild(card);
         });
     }
 
-    const tempInput = document.getElementById("tempInput");
-    const windInput = document.getElementById("windInput");
-    const calcChillBtn = document.getElementById("calcChillBtn");
-    const chillResult = document.getElementById("chillResult");
+    if (uploadForm) {
+        uploadForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            
+            const fileInput = document.getElementById("imageFileSelect");
+            const captionInput = document.getElementById("imageCaption").value.trim();
+            
+            if (!fileInput.files || fileInput.files.length === 0) return;
+            
+            const targetFile = fileInput.files[0];
+            const fileReader = new FileReader();
 
-    if (calcChillBtn && tempInput && windInput && chillResult) {
-        calcChillBtn.addEventListener("click", () => {
-            const temp = parseFloat(tempInput.value);
-            const wind = parseFloat(windInput.value);
-            const factor = calculateWindChill(temp, wind);
-            chillResult.textContent = `Wind Chill: ${factor}`;
+            fileReader.addEventListener("load", () => {
+                const newMemory = {
+                    id: Date.now(),
+                    isPlaceholder: false,
+                    imageStream: fileReader.result,
+                    title: captionInput,
+                    likes: 0
+                };
+
+                memoriesDatabase.unshift(newMemory);
+                localStorage.setItem("kinspaceMemories", JSON.stringify(memoriesDatabase));
+                uploadForm.reset();
+                renderGalleryFeed();
+            });
+
+            fileReader.readAsDataURL(targetFile);
         });
     }
+
+    renderGalleryFeed();
 
     const loginBtn = document.getElementById("loginBtn");
     const loginModal = document.getElementById("loginModal");
