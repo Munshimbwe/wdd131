@@ -1,23 +1,22 @@
 @media (min-width: 768px) {
   #menu-toggle {
-    display: none !important;
+    display: none;
   }
 
   #nav-links {
-    display: flex !important;
-    flex-direction: row !important;
-    position: static !important;
-    width: auto !important;
-    background: none !important;
+    display: flex;
+    flex-direction: row;
+    position: static;
+    width: auto;
+    background: none;
     flex-grow: 1;
     justify-content: flex-end;
   }
 
   #nav-links li, 
-  #nav-links.open li:not(:first-child), 
   #nav-links li:not(:first-child) {
-    display: inline-block !important;
-    width: auto !important;
+    display: block;
+    width: auto;
   }
 
   #nav-links a,
@@ -27,24 +26,21 @@
     margin-left: 1.5rem;
     padding: 6px 12px;
     border-radius: 4px;
-    color: #ffffff !important;
+    color: var(--text-light);
   }
 
   #nav-links a:hover {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: var(--nav-active);
   }
 
   #nav-links a.active {
     background: none;
-    border-bottom: 2px solid #ffffff;
+    border-bottom: 2px solid var(--text-light);
     border-radius: 0;
   }
 
   #temple-container {
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
     max-width: 1200px;
-    margin: 0 auto;
-    gap: 2rem;
   }
 }
