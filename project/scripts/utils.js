@@ -1,43 +1,60 @@
-export function processLoginVerification(role, inputKey) {
-    const cleanKey = inputKey.trim();
-
-    if (role === "Parent" && !cleanKey.includes("@")) {
-        return { success: false, message: "❌ Parents must use a valid email address." };
+export const memoriesArray = [
+    {
+        id: "mem-001",
+        title: "Family Picnic at the Park",
+        category: "outdoor",
+        likes: 12,
+        caption: "A wonderful sunny afternoon sharing snacks and playing games outdoors."
+    },
+    {
+        id: "mem-002",
+        title: "Baking Cookies with Grandma",
+        category: "indoor",
+        likes: 24,
+        caption: "Learning secret recipes and enjoying homemade chocolate chip treats."
+    },
+    {
+        id: "mem-003",
+        title: "Weekend Bike Trail Ride",
+        category: "outdoor",
+        likes: 18,
+        caption: "Exploring the new regional paths together as a team."
+    },
+    {
+        id: "mem-004",
+        title: "Board Game Marathon Night",
+        category: "indoor",
+        likes: 15,
+        caption: "Unplugged family fun with friendly strategies and rolling dice."
     }
-    if (cleanKey.length < 3) {
-        return { success: false, message: "❌ Account username parameters are too short." };
-    }
+];
 
-    return {
-        success: true,
-        message: "📲 Security Code Dispatched! Check your linked device.",
-        simulatedOtp: "1234"
-    };
+export function getFormattedDateString() {
+    const fileTimestamp = new Date(document.lastModified);
+    return fileTimestamp.toLocaleString('en-GB', {
+        dateStyle: 'medium',
+        timeStyle: 'short'
+    });
 }
 
-export function process2FAVerification(inputCode, trueCode) {
-    if (inputCode.trim() === trueCode) {
-        return { success: true, message: "🔓 Double Authentication Verified! Redirecting..." };
+export function computeWindChillIndex(celsiusTemp, kmhWind) {
+    if (celsiusTemp > 10 || kmhWind <= 4.8) {
+        return null;
     }
-    return { success: false, message: "❌ Invalid code match. Please try again." };
+    return 13.12 + (0.6215 * celsiusTemp) - (11.37 * Math.pow(kmhWind, 0.16)) + (0.3965 * celsiusTemp * Math.pow(kmhWind, 0.16));
 }
 
-export function calculateWindChill(temperature, windSpeed) {
-    if (temperature <= 10 && windSpeed > 4.8) {
-        const chill = 13.12 + (0.6215 * temperature) - (11.37 * Math.pow(windSpeed, 0.16)) + (0.3965 * temperature * Math.pow(windSpeed, 0.16));
-        return `${Math.round(chill)}°C`;
+export function incrementLocalStorageTracker(storageKeyName) {
+    let currentStoredValue = parseInt(localStorage.getItem(storageKeyName));
+    if (isNaN(currentStoredValue)) {
+        currentStoredValue = 0;
     }
-    return "N/A (Conditions out of range)";
+    currentStoredValue += 1;
+    localStorage.setItem(storageKeyName, currentStoredValue);
+    return currentStoredValue;
 }
 
-export function getFormattedLastModified() {
-    return document.lastModified;
-}
-
-export function generateTableOfContentsData() {
-    return [
-        { targetId: "features", text: "✨ Core System Features" },
-        { targetId: "weather-section", text: "🌦️ Outdoor Safety Check" },
-        { targetId: "ai-section", text: "🤖 Safe AI Assistant" }
-    ];
+export function fetchLocalStorageValue(storageKeyName) {
+    const value = localStorage.getItem(storageKeyName);
+    return value ? value : 0;
 }

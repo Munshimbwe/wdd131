@@ -3,136 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KinSpace - Safe Family Social Networking</title>
-    <meta name="description" content="A secure, moderated digital space where kids explore and families stay connected safely with parental controls.">
-    <meta name="keywords" content="family social media, safe networking for kids, parental controls, private family sharing">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>KinSpace - Safe Social Networking for Families</title>
+    <meta name="description" content="A private, heavily moderated social utility platform engineered strictly for families, children, and close domestic relational connection safety.">
+    <meta name="keywords" content="private family social media, secure child safe sharing platform, domestic networking software, multi-page assignment">
     <meta name="author" content="Munshimbwe Kafwanka">
-    <link rel="stylesheet" href="../project/styles/kinspace.css">
-    <script type="module" src="scripts/main.js"></script>
+    <link rel="stylesheet" href="styles/kinspace.css">
+    
 </head>
 <body>
+
     <header>
-    <nav class="navbar">
-        <a href="index.html" class="logo">👨‍👩‍👧‍👦 KinSpace</a>
-        
-        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        <nav class="navbar">
+            <a href="index.html" class="logo">👨‍👩‍👧‍👦 KinSpace</a>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle structural navigation drawer">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="active">✨ Home</a>
+                <a href="hub.html">🖼️ Memory Wall</a>
+                <a href="join.html">📝 Register</a>
+                <button id="themeToggle" class="btn-theme">🌙 Dark</button>
+            </div>
+        </nav>
+    </header>
 
-        <div class="nav-links" id="navLinks">
-            <a href="index.html" class="active">🏠 Home</a>
-            <a href="gallery.html">🖼️ Gallery</a>
-            <a href="dashboard.html">🛡️ Dashboard</a>
-            <a href="register.html">📝 Register</a>
-            <button id="themeToggle" class="btn-theme" aria-label="Toggle visual theme">🌓 Mode</button>
-            <a href="#" class="btn-login" id="loginBtn">🔐 Login</a>
+    <main>
+        <section class="hero">
+            <h1>Social Media Reimagined For Families. 🚀</h1>
+            <p>A private, algorithmic-free ecosystem built strictly to preserve childhood privacy while strengthening your household connections.</p>
+            <a href="join.html" class="btn-cta">Initialize Family Unit 🎉</a>
+        </section>
+
+        <section class="tool-section">
+            <h2 id="h-platform-overview">Platform Security Architecture</h2>
+            <p>Unlike commercial mainstream digital channels designed around tracking algorithms and advertising networks, KinSpace operates inside closed parameters. Profiles are hidden from indexing search bots, meaning only explicitly invited relatives can access, view, or connect with your private family unit logs.</p>
+        </section>
+
+        <div class="grid-layout">
+            <article class="card">
+                <div class="placeholder-card-icon">🏡</div>
+                <h3>Private Vaults</h3>
+                <p>Archive multi-generational updates safely. No third-party data profiling or targeted marketing matrices can cross the threshold of your ecosystem boundary lines.</p>
+            </article>
+
+            <article class="card">
+                <div class="placeholder-card-icon">🛡️</div>
+                <h3>Active Guardrails</h3>
+                <p>Parents manage precise configuration states, screen timeouts, bedtime curfews, and relationship validation parameters effortlessly from a single master dashboard layer.</p>
+            </article>
+
+            <article class="card">
+                <div class="placeholder-card-icon">🎨</div>
+                <h3>Organic Explore</h3>
+                <p>Children explore custom discovery boards packed with educational content, hobby tutorials, and creative problems, without toxic engagement manipulation patterns.</p>
+            </article>
         </div>
-    </nav>
-</header>
-    <main class="main-layout">
-        <aside class="toc-sidebar">
-            <nav class="toc-container" aria-label="Table of contents">
-                <h4>📋 Navigation Guide</h4>
-                <ul id="tocList"></ul>
-            </nav>
-        </aside>
 
-        <div class="content-container">
-            <section class="hero">
-                <h1>Social Media Built for Families. 🚀</h1>
-                <p>A secure, moderated digital space where kids explore and families stay connected. 💖</p>
-                <button class="btn-cta" id="ctaBtn">Create Family Account 🎉</button>
-            </section>
-
-            <section id="features" class="features-grid">
-                <div class="card">
-                    <h3 id="h-private-hubs">🔒 Private Hubs</h3>
-                    <p>Share photos and updates exclusively with verified relatives. 🏡</p>
-                </div>
-                <div class="card">
-                    <h3 id="h-kids-explore">🎨 Kids' Explore</h3>
-                    <p>Curated, educational content with zero toxic algorithms. 📚</p>
-                </div>
-                <div class="card">
-                    <h3 id="h-parent-control">🛡️ Parent Control</h3>
-                    <p>Manage screen time and approve connections instantly. 📱</p>
-                </div>
-            </section>
-
-            <section id="weather-section" class="tool-section">
-                <h2 id="h-weather-safety">Outdoor Play Safety Check 🌦️</h2>
-                <p>Check the conditions before sending kids outside to play.</p>
-                <div class="weather-container">
-                    <div class="weather-info">
-                        <span id="weatherIcon" class="weather-icon">☀️</span>
-                        <span id="weatherTemp">22°C</span>
+        <section class="tool-section">
+            <h2>Outdoor Play Safety Checker 🌦️</h2>
+            <p>Verify external safety conditions instantly using the automated index formula algorithm before authorizing children to play outside.</p>
+            <div class="grid-layout weather-layout-row">
+                <div>
+                    <div class="weather-status-block">
+                        <span id="weatherIcon" class="weather-status-icon">☀️</span>
+                        <span id="ambientTemp">21°C</span>
                     </div>
-                    <div class="chill-calculator">
-                        <h4>Calculate Wind Chill Factor 💨</h4>
-                        <label for="tempInput" class="sr-only">Temperature in Celsius</label>
-                        <input type="number" id="tempInput" placeholder="Temp (°C)" value="5">
-                        
-                        <label for="windInput" class="sr-only">Wind speed in km/h</label>
-                        <input type="number" id="windInput" placeholder="Wind (km/h)" value="20">
-                        
-                        <button id="calcChillBtn" class="btn-action">Calculate Chill</button>
-                        <p id="chillResult">Wind Chill: --</p>
-                    </div>
+                    <p class="weather-status-subtext">Automated environmental parameter detection loop initialized.</p>
                 </div>
-            </section>
+                <div>
+                    <h4 class="chill-calculator-title">Wind Chill Multiplier Factor</h4>
+                    <div class="chill-calculator-inputs">
+                        <input type="number" id="tempInput" placeholder="Temp (°C)" value="4">
+                        <input type="number" id="windInput" placeholder="Wind (km/h)" value="15">
+                    </div>
+                    <button id="calcChillBtn" class="btn-submit chill-calc-submit">Compute Index</button>
+                    <p id="chillResult" class="chill-calc-result">Wind Chill Index: --</p>
+                </div>
+            </div>
+        </section>
 
-            <section id="ai-section" class="tool-section ai-box">
-                <h2 id="h-ask-ai">🤖 Ask KinSpace AI (Child-Safe Assistant)</h2>
-                <p>Got a tough question? Ask our heavily moderated, kid-friendly AI guide! 🧠</p>
-                <form id="aiForm" class="ai-interface">
-                    <label for="aiQuery" class="sr-only">Your safe question</label>
-                    <input type="text" id="aiQuery" placeholder="Ask something (e.g., Why is the sky blue?)" required>
-                    <button type="submit" id="askAiBtn" class="btn-action">Ask AI ✨</button>
-                </form>
-                <div class="ai-response" id="aiResponse" role="status" aria-live="polite">Waiting for your question... 💤</div>
-            </section>
-        </div>
+        <section class="tool-section">
+            <h2>Ask KinSpace AI Assistant 🤖</h2>
+            <p>Test our heavily moderated, child-safe assistant. This text processor immediately catches and strips out cyberbullying patterns or harmful keyword interactions [INDEX].</p>
+            <div class="ai-interface-container">
+                <input type="text" id="aiQuery" placeholder="Ask a question (e.g., Why is the sky blue? or test a blocked word...)">
+                <button id="askAiBtn" class="btn-submit ai-interface-submit">Submit Inquiry</button>
+                <div id="aiResponse" class="ai-interface-response-box">Waiting for input logs... 💤</div>
+            </div>
+        </section>
+
+        <section class="tool-section metrics-summary-panel">
+            <h3>📊 Platform Engagement Metrics</h3>
+            <p class="metrics-summary-text">Total Interactive Likes Tracked Session-wide: <span id="totalEngagementDisplay" class="metrics-summary-value">0</span></p>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 KinSpace Platform. All rights reserved. 🛡️| ⚒️ Munshimbwe Kafwanka ⚒️</p>
-        <p class="meta-text">Page Last Modified: <span id="lastModifiedDate"></span></p>
+        <p>&copy; 2026 Munshimbwe Kafwanka. All rights reserved. 🛡️</p>
+        <p>Project Platform Location Deployment Node: ⚒️Kabwe, Zambia⚒️</p>
+        <p class="footer-modification-text">Page Last Modified: <span id="lastModifiedDate"></span></p>
+        <p class="footer-citations-link"><a href="references.html">View Sources & Citations Index</a></p>
     </footer>
 
-    <div id="loginModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
-        <div class="modal-content">
-            <button id="closeModalBtn" class="modal-close" aria-label="Close modal">&times;</button>
-            <h3 id="modalTitle">🔐 Secure Portal Access</h3>
-            <p id="modalSubHeading">Select account type and input details to access your family hub.</p>
-            
-            <form id="modalLoginForm" class="form-container">
-                <div class="form-group">
-                    <label for="modalRoleSelect">Profile Type:</label>
-                    <select id="modalRoleSelect" class="form-select" required>
-                        <option value="" disabled selected>Choose role...</option>
-                        <option value="Parent">Parent / Guardian 🛡️</option>
-                        <option value="Child">Child User 🎨</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="modalEmailInput">Email Address / Username:</label>
-                    <input type="text" id="modalEmailInput" placeholder="Enter account email" required>
-                </div>
-                <button type="submit" class="btn-submit modal-submit-primary">Request Security Code 📲</button>
-                <div id="modalFormFeedback" class="form-feedback"></div>
-            </form>
+    <script type="module" src="scripts/main.js"></script>
 
-            <form id="modal2FAForm" class="form-container initial-hidden">
-                <div class="form-group">
-                    <label for="modalOtpInput">Enter 4-Digit Verification Code:</label>
-                    <input type="text" id="modalOtpInput" maxlength="4" placeholder="0000" required>
-                </div>
-                <button type="submit" class="btn-submit modal-submit-secondary">Verify & Login 🔓</button>
-                <div id="modal2FAFeedback" class="form-feedback"></div>
-            </form>
-        </div>
-    </div>
 </body>
 </html>
