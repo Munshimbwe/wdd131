@@ -1,4 +1,4 @@
-import { memoriesArray, getFormattedDateString, computeWindChillIndex, incrementLocalStorageTracker, fetchLocalStorageValue } from './utils.js';
+import { memoriesArray, getFormattedDateString, computeWindChillIndex, incrementLocalStorageTracker, fetchLocalStorageValue, incrementAiInquiryTracker } from './utils.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            const blockedTerms = ["hate", "stupid", "ugly", "kill"];
+            const blockedTerms = ["hate", "stupid", "ugly", "kill", "kwere-kwere", "immigrants"];
             const isUnsafe = blockedTerms.some(term => rawInput.includes(term));
 
             if (isUnsafe) {
@@ -64,10 +64,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 aiResponse.className = "ai-interface-response-box feedback-error-style";
             } else {
                 aiResponse.className = "ai-interface-response-box";
+                const updatedCount = incrementAiInquiryTracker();
+                
                 if (rawInput.includes("sky")) {
-                    aiResponse.textContent = `🤖 AI Guide: The sky is blue because Earth's atmosphere scatters shorter blue light waves in all directions.`;
+                    aiResponse.innerHTML = `🤖 AI Guide: The sky is blue because Earth's atmosphere scatters shorter blue light waves in all directions.<br><br><small style="color:var(--accent);">[Total Safe Queries Processed: ${updatedCount}]</small>`;
                 } else {
-                    aiResponse.textContent = `🤖 AI Guide: Query checked and verified safe. Connecting to secure knowledge vault parameters...`;
+                    aiResponse.innerHTML = `🤖 AI Guide: Query checked and verified safe. Connecting to secure knowledge vault parameters...<br><br><small style="color:var(--accent);">[Total Safe Queries Processed: ${updatedCount}]</small>`;
                 }
             }
         });

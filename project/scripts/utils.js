@@ -58,3 +58,14 @@ export function fetchLocalStorageValue(storageKeyName) {
     const value = localStorage.getItem(storageKeyName);
     return value ? value : 0;
 }
+
+
+export function incrementAiInquiryTracker() {
+    let currentInquiries = parseInt(localStorage.getItem("aiInquiryCounter"));
+    if (isNaN(currentInquiries)) {
+        currentInquiries = 0;
+    }
+    currentInquiries += 1;
+    localStorage.setItem("aiInquiryCounter", currentInquiries);
+    return currentInquiries;
+}
