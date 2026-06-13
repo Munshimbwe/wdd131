@@ -85,6 +85,15 @@ function initializeAiAssistantModule() {
 
     const blockedWordsList = ["hate", "violence", "weapons", "abuse"];
 
+    const knowledgeBase = {
+        "why is the sky blue": "The sky is blue because gases in Earth's atmosphere scatter sunlight in all directions. Blue light is scattered more than other colours because it travels as shorter, smaller waves (Rayleigh scattering).",
+        "why is sky blue": "The sky is blue because gases in Earth's atmosphere scatter sunlight in all directions. Blue light is scattered more than other colours because it travels as shorter, smaller waves (Rayleigh scattering).",
+        "what is the solar system": "The Solar System consists of our star, the Sun, and everything bound to it by gravity—the planets Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune; dwarf planets; and millions of asteroids and comets.",
+        "how do plants grow": "Plants grow by absorbing sunlight, water, and carbon dioxide to create their own food in a process called photosynthesis. They also absorb vital nutrients from the soil through their roots.",
+        "why does it rain": "Rain happens when liquid water evaporates from the Earth into water vapour, rises into the sky, cools down, and condenses into clouds. When the water droplets inside clouds get too heavy, gravity pulls them back down as rain.",
+        "what is gravity": "Gravity is an invisible force that pulls objects toward each other. It is what keeps your feet on the ground and what keeps the Earth and other planets orbiting around the Sun."
+    };
+
     askBtn.addEventListener("click", () => {
         const inputField = document.getElementById("aiQuery");
         const displayPanel = document.getElementById("aiResponse");
@@ -96,14 +105,23 @@ function initializeAiAssistantModule() {
         }
 
         const lowercaseQuery = queryText.toLowerCase();
-        const flaggedMatch = blockedWordsList.some(keyword => lowercaseQuery.includes(keyword));
 
+        const flaggedMatch = blockedWordsList.some(keyword => lowercaseQuery.includes(keyword));
         if (flaggedMatch) {
             displayPanel.textContent = "Block Action: Message failed security analysis filters.";
             return;
         }
 
-        displayPanel.innerHTML = `Response Logged:<br>Thank you for inquiring: "${queryText}". Exploring educational questions helps safe growth!`;
+        const cleanQuery = lowercaseQuery.replace(/[?.,!]/g, "").trim();
+
+        let responseMessage = "";
+        if (knowledgeBase[cleanQuery]) {
+            responseMessage = `<strong>AI Response:</strong> ${knowledgeBase[cleanQuery]}`;
+        } else {
+            responseMessage = `Response Logged:<br>Thank you for inquiring: "${queryText}". I don't have that specific factual lesson programmed yet, but exploring educational questions helps safe growth!`;
+        }
+
+        displayPanel.innerHTML = responseMessage;
         inputField.value = "";
         incrementAiInquiryTracker();
         incrementLocalStorageTracker("totalEngagementCounter");
@@ -171,7 +189,7 @@ function initializeFormSubmissionCounter() {
     if (!activeFormElement) return;
 
     activeFormElement.addEventListener("submit", (event) => {
-        event.preventDefault(); 
+        event.preventDefault();
         incrementLocalStorageTracker("totalFormRegistrations");
         const destinationUrl = activeFormElement.getAttribute("action") || "review.html";
         window.location.href = destinationUrl;
