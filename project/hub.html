@@ -42,8 +42,8 @@
                     <p>Toggle parameters to filter down specific environmental memory locations.</p>
                 </div>
                 <div class="filter-select-group">
-                    <label for="filterCategory">Select Environment:</label>
-                    <select id="filterCategory">
+                    <label for="filterCategoryMenu">Select Environment:</label>
+                    <select id="filterCategoryMenu">
                         <option value="all">Show All Memories (Complete Hub)</option>
                         <option value="indoor">Indoor Encounters 🏠</option>
                         <option value="outdoor">Outdoor Operations 🌲</option>
@@ -53,14 +53,16 @@
         </section>
 
         <section>
-            <div id="galleryGrid" class="grid-layout gallery-grid-padding">
-                
+            <div id="dynamicMemoryGrid" class="grid-layout gallery-grid-padding">
             </div>
         </section>
 
         <section class="tool-section metrics-summary-panel">
             <h3>📊 Platform Engagement Metrics</h3>
-            <p class="metrics-summary-text">Total Interactive Likes Tracked Session-wide: <span id="totalEngagementDisplay" class="metrics-summary-value">0</span></p>
+            <div class="metrics-wrapper">
+                <p class="metrics-summary-text">Total Engagement Metric Units Tracked: <span id="totalEngagementDisplay" class="metrics-summary-value">0</span></p>
+                <p class="metrics-summary-text">Total Registrations System-wide: <span id="totalRegistrationsDisplay" class="metrics-summary-value">0</span></p>
+            </div>
         </section>
     </main>
 

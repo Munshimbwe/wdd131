@@ -9,7 +9,6 @@
     <meta name="keywords" content="private family social media, secure child safe sharing platform, domestic networking software, multi-page assignment">
     <meta name="author" content="Munshimbwe Kafwanka">
     <link rel="stylesheet" href="styles/kinspace.css">
-    
 </head>
 <body>
 
@@ -63,6 +62,22 @@
         </div>
 
         <section class="tool-section">
+            <h2>Featured Family Memories 🖼️</h2>
+            <p>A real-time window into recent multi-generational family milestones.</p>
+            
+            <div class="filter-container">
+                <label for="filterCategoryMenu">Filter Activities: </label>
+                <select id="filterCategoryMenu">
+                    <option value="all">All Memories</option>
+                    <option value="indoor">Indoor Experiences</option>
+                    <option value="outdoor">Outdoor Adventures</option>
+                </select>
+            </div>
+
+            <div id="dynamicMemoryGrid" class="grid-layout gallery-grid"></div>
+        </section>
+
+        <section class="tool-section">
             <h2>Outdoor Play Safety Checker 🌦️</h2>
             <p>Verify external safety conditions instantly using the automated index formula algorithm before authorizing children to play outside.</p>
             <div class="grid-layout weather-layout-row">
@@ -87,7 +102,7 @@
 
         <section class="tool-section">
             <h2>Ask KinSpace AI Assistant 🤖</h2>
-            <p>Test our heavily moderated, child-safe assistant. This text processor immediately catches and strips out cyberbullying patterns or harmful keyword interactions [INDEX].</p>
+            <p>Test our heavily moderated, child-safe assistant. This text processor immediately catches and strips out cyberbullying patterns or harmful keyword interactions.</p>
             <div class="ai-interface-container">
                 <input type="text" id="aiQuery" placeholder="Ask a question (e.g., Why is the sky blue? or test a blocked word...)">
                 <button id="askAiBtn" class="btn-submit ai-interface-submit">Submit Inquiry</button>
@@ -97,7 +112,10 @@
 
         <section class="tool-section metrics-summary-panel">
             <h3>📊 Platform Engagement Metrics</h3>
-            <p class="metrics-summary-text">Total Interactive Likes Tracked Session-wide: <span id="totalEngagementDisplay" class="metrics-summary-value">0</span></p>
+            <div class="metrics-wrapper">
+                <p class="metrics-summary-text">Total Engagement Metric Units Tracked: <span id="totalEngagementDisplay" class="metrics-summary-value">0</span></p>
+                <p class="metrics-summary-text">Total Registrations System-wide: <span id="totalRegistrationsDisplay" class="metrics-summary-value">0</span></p>
+            </div>
         </section>
     </main>
 

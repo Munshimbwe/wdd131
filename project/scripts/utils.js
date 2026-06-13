@@ -4,28 +4,32 @@ export const memoriesArray = [
         title: "Family Picnic at the Park",
         category: "outdoor",
         likes: 12,
-        caption: "A wonderful sunny afternoon sharing snacks and playing games outdoors."
+        caption: "A wonderful sunny afternoon sharing snacks and playing games outdoors.",
+        image: "images/familypicnic.webp"
     },
     {
         id: "mem-002",
         title: "Baking Cookies with Grandma",
         category: "indoor",
         likes: 24,
-        caption: "Learning secret recipes and enjoying homemade chocolate chip treats."
+        caption: "Learning secret recipes and enjoying homemade chocolate chip treats.",
+        image: "images/baking-with-granny.webp"
     },
     {
         id: "mem-003",
         title: "Weekend Bike Trail Ride",
         category: "outdoor",
         likes: 18,
-        caption: "Exploring the new regional paths together as a team."
+        caption: "Exploring the new regional paths together as a team.",
+        image: "images/family-biking.webp"
     },
     {
         id: "mem-004",
         title: "Board Game Marathon Night",
         category: "indoor",
         likes: 15,
-        caption: "Unplugged family fun with friendly strategies and rolling dice."
+        caption: "Unplugged family fun with friendly strategies and rolling dice.",
+        image: "images/family-board-games.webp"
     }
 ];
 
@@ -41,31 +45,25 @@ export function computeWindChillIndex(celsiusTemp, kmhWind) {
     if (celsiusTemp > 10 || kmhWind <= 4.8) {
         return null;
     }
-    return 13.12 + (0.6215 * celsiusTemp) - (11.37 * Math.pow(kmhWind, 0.16)) + (0.3965 * celsiusTemp * Math.pow(kmhWind, 0.16));
+    const index = 13.12 + (0.6215 * celsiusTemp) - (11.37 * Math.pow(kmhWind, 0.16)) + (0.3965 * celsiusTemp * Math.pow(kmhWind, 0.16));
+    return parseFloat(index.toFixed(1));
 }
 
 export function incrementLocalStorageTracker(storageKeyName) {
-    let currentStoredValue = parseInt(localStorage.getItem(storageKeyName));
+    let currentStoredValue = parseInt(localStorage.getItem(storageKeyName), 10);
     if (isNaN(currentStoredValue)) {
         currentStoredValue = 0;
     }
     currentStoredValue += 1;
-    localStorage.setItem(storageKeyName, currentStoredValue);
+    localStorage.setItem(storageKeyName, currentStoredValue.toString());
     return currentStoredValue;
 }
 
 export function fetchLocalStorageValue(storageKeyName) {
     const value = localStorage.getItem(storageKeyName);
-    return value ? value : 0;
+    return value ? parseInt(value, 10) : 0;
 }
 
-
 export function incrementAiInquiryTracker() {
-    let currentInquiries = parseInt(localStorage.getItem("aiInquiryCounter"));
-    if (isNaN(currentInquiries)) {
-        currentInquiries = 0;
-    }
-    currentInquiries += 1;
-    localStorage.setItem("aiInquiryCounter", currentInquiries);
-    return currentInquiries;
+    return incrementLocalStorageTracker("aiInquiryCounter");
 }

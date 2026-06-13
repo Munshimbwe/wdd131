@@ -1,156 +1,191 @@
-import { memoriesArray, getFormattedDateString, computeWindChillIndex, incrementLocalStorageTracker, fetchLocalStorageValue, incrementAiInquiryTracker } from './utils.js';
+import { 
+    memoriesArray, 
+    getFormattedDateString, 
+    computeWindChillIndex, 
+    incrementLocalStorageTracker, 
+    fetchLocalStorageValue, 
+    incrementAiInquiryTracker 
+} from './utils.js';
 
 document.addEventListener("DOMContentLoaded", () => {
-    
-    const lastModifiedSpan = document.getElementById("lastModifiedDate");
-    if (lastModifiedSpan) {
-        lastModifiedSpan.textContent = `${getFormattedDateString()}`;
-    }
-
-    const hamburgerBtn = document.getElementById("hamburgerBtn");
-    const navLinks = document.getElementById("navLinks");
-    if (hamburgerBtn && navLinks) {
-        hamburgerBtn.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-        });
-    }
-
-    const themeToggle = document.getElementById("themeToggle");
-    if (themeToggle) {
-        themeToggle.addEventListener("click", () => {
-            document.body.classList.toggle("dark-theme");
-            const isDark = document.body.classList.contains("dark-theme");
-            themeToggle.textContent = isDark ? "☀️ Light" : "🌙 Dark";
-        });
-    }
-
-    const calcChillBtn = document.getElementById("calcChillBtn");
-    if (calcChillBtn) {
-        calcChillBtn.addEventListener("click", () => {
-            const tempVal = parseFloat(document.getElementById("tempInput").value);
-            const windVal = parseFloat(document.getElementById("windInput").value);
-            const resultParagraph = document.getElementById("chillResult");
-
-            if (isNaN(tempVal) || isNaN(windVal)) {
-                resultParagraph.textContent = `❌ Please enter valid metrics.`;
-                return;
-            }
-
-            const chill = computeWindChillIndex(tempVal, windVal);
-            if (chill === null) {
-                resultParagraph.textContent = `⚠️ Formula restricts to Temp ≤ 10°C and Wind > 4.8 km/h.`;
-            } else {
-                resultParagraph.textContent = `🥶 Wind Chill Index: ${chill.toFixed(1)}°C`;
-            }
-        });
-    }
-
-    const askAiBtn = document.getElementById("askAiBtn");
-    if (askAiBtn) {
-        askAiBtn.addEventListener("click", () => {
-            const rawInput = document.getElementById("aiQuery").value.trim().toLowerCase();
-            const aiResponse = document.getElementById("aiResponse");
-
-            if (!rawInput) {
-                aiResponse.textContent = `🤔 Please enter a query.`;
-                return;
-            }
-
-            const blockedTerms = ["hate", "stupid", "ugly", "kill", "kwere-kwere", "immigrants"];
-            const isUnsafe = blockedTerms.some(term => rawInput.includes(term));
-
-            if (isUnsafe) {
-                aiResponse.innerHTML = `🛡️ <strong>[🚨 Safety Warning]:</strong> Inappropriate content intercepted by moderation filters.`;
-                aiResponse.className = "ai-interface-response-box feedback-error-style";
-            } else {
-                aiResponse.className = "ai-interface-response-box";
-                const updatedCount = incrementAiInquiryTracker();
-                
-                if (rawInput.includes("sky")) {
-                    aiResponse.innerHTML = `🤖 AI Guide: The sky is blue because Earth's atmosphere scatters shorter blue light waves in all directions.<br><br><small style="color:var(--accent);">[Total Safe Queries Processed: ${updatedCount}]</small>`;
-                } else {
-                    aiResponse.innerHTML = `🤖 AI Guide: Query checked and verified safe. Connecting to secure knowledge vault parameters...<br><br><small style="color:var(--accent);">[Total Safe Queries Processed: ${updatedCount}]</small>`;
-                }
-            }
-        });
-    }
-
-    const galleryGrid = document.getElementById("galleryGrid");
-    const filterSelect = document.getElementById("filterCategory");
-    if (galleryGrid) {
-        const renderGallery = (filterCriterion) => {
-            galleryGrid.innerHTML = "";
-            const filteredArray = filterCriterion === "all" ? memoriesArray : memoriesArray.filter(item => item.category === filterCriterion);
-            
-            filteredArray.forEach(item => {
-                const cardDiv = document.createElement("div");
-                cardDiv.className = "card";
-                cardDiv.innerHTML = `
-                    <div class="placeholder-icon">🖼️</div>
-                    <h3>${item.title}</h3>
-                    <p>${item.caption}</p>
-                    <button class="btn-theme like-action-btn" data-id="${item.id}">❤️ Like (<span>${item.likes}</span>)</button>
-                `;
-                galleryGrid.appendChild(cardDiv);
-            });
-        };
-
-        if (filterSelect) {
-            filterSelect.addEventListener("change", (e) => {
-                renderGallery(e.target.value);
-            });
-        }
-
-        galleryGrid.addEventListener("click", (e) => {
-            if (e.target.classList.contains("like-action-btn")) {
-                const targetId = e.target.getAttribute("data-id");
-                const matchedMemory = memoriesArray.find(m => m.id === targetId);
-                if (matchedMemory) {
-                    matchedMemory.likes += 1;
-                    const spanCount = e.target.querySelector("span");
-                    spanCount.textContent = `${matchedMemory.likes}`;
-                    incrementLocalStorageTracker("totalEngagementCounter");
-                    updateCounterDisplays();
-                }
-            }
-        });
-
-        renderGallery("all");
-    }
-
-    const registrationForm = document.getElementById("registrationForm");
-    if (registrationForm) {
-        registrationForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const parentName = document.getElementById("parentName").value.trim();
-            const familySurname = document.getElementById("familySurname").value.trim();
-            const emailAddress = document.getElementById("emailAddress").value.trim();
-            const feedbackBox = document.getElementById("formFeedback");
-
-            if (parentName.length < 2 || familySurname.length < 2) {
-                feedbackBox.className = "feedback-msg feedback-error-style";
-                feedbackBox.textContent = `❌ Names must contain at least 2 alphanumeric characters.`;
-                return;
-            }
-
-            incrementLocalStorageTracker("registrationSessionCounter");
-            feedbackBox.className = "feedback-msg feedback-success-style";
-            feedbackBox.innerHTML = `🎉 Validation Complete! The <strong>${familySurname} Family Hub</strong> has been initialized. Updates sent to ${emailAddress.toLowerCase()}.`;
-            registrationForm.reset();
-            updateCounterDisplays();
-        });
-    }
-
-    function updateCounterDisplays() {
-        const totalEngagedSpan = document.getElementById("totalEngagementDisplay");
-        if (totalEngagedSpan) {
-            totalEngagedSpan.textContent = `${fetchLocalStorageValue("totalEngagementCounter")}`;
-        }
-        const totalRegSpan = document.getElementById("totalRegistrationsDisplay");
-        if (totalRegSpan) {
-            totalRegSpan.textContent = `${fetchLocalStorageValue("registrationSessionCounter")}`;
-        }
-    }
-
-    updateCounterDisplays();
+    initializeGlobalTheme();
+    initializeGlobalNavigation();
+    initializeFooterMetadata();
+    initializeWindChillCalculator();
+    initializeAiAssistantModule();
+    initializeMemoryWallGallery();
+    initializeFormSubmissionCounter();
+    updateGlobalMetricsDisplays();
 });
+
+function initializeGlobalTheme() {
+    const themeBtn = document.getElementById("themeToggle");
+    if (!themeBtn) return;
+
+    if (localStorage.getItem("activeTheme") === "dark") {
+        document.body.classList.add("dark-theme");
+        themeBtn.textContent = "☀️ Light";
+    }
+
+    themeBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark-theme");
+        const isDark = document.body.classList.contains("dark-theme");
+        localStorage.setItem("activeTheme", isDark ? "dark" : "light");
+        themeBtn.textContent = isDark ? "☀️ Light" : "🌙 Dark";
+    });
+}
+
+function initializeGlobalNavigation() {
+    const menuBtn = document.getElementById("hamburgerBtn");
+    const navMenu = document.getElementById("navLinks");
+    if (!menuBtn || !navMenu) return;
+
+    menuBtn.addEventListener("click", () => {
+        navMenu.classList.toggle("open-drawer");
+        menuBtn.classList.toggle("menu-active");
+    });
+}
+
+function initializeFooterMetadata() {
+    const timestampBox = document.getElementById("lastModifiedDate");
+    if (timestampBox) {
+        timestampBox.textContent = getFormattedDateString();
+    }
+}
+
+function initializeWindChillCalculator() {
+    const calcBtn = document.getElementById("calcChillBtn");
+    if (!calcBtn) return;
+
+    calcBtn.addEventListener("click", () => {
+        const rawTemp = parseFloat(document.getElementById("tempInput").value);
+        const rawWind = parseFloat(document.getElementById("windInput").value);
+        const outputBox = document.getElementById("chillResult");
+
+        if (isNaN(rawTemp) || isNaN(rawWind)) {
+            outputBox.textContent = "Error: Input values missing.";
+            return;
+        }
+
+        const calculatedIndex = computeWindChillIndex(rawTemp, rawWind);
+
+        if (calculatedIndex === null) {
+            outputBox.textContent = "N/A (Temp must be ≤ 10°C and Wind > 4.8 km/h)";
+        } else {
+            outputBox.textContent = `Wind Chill Index: ${typeof calculatedIndex === 'number' ? calculatedIndex.toFixed(1) : calculatedIndex}°C`;
+            incrementLocalStorageTracker("totalEngagementCounter");
+            updateGlobalMetricsDisplays();
+        }
+    });
+}
+
+function initializeAiAssistantModule() {
+    const askBtn = document.getElementById("askAiBtn");
+    if (!askBtn) return;
+
+    const blockedWordsList = ["hate", "violence", "weapons", "abuse"];
+
+    askBtn.addEventListener("click", () => {
+        const inputField = document.getElementById("aiQuery");
+        const displayPanel = document.getElementById("aiResponse");
+        const queryText = inputField.value.trim();
+
+        if (!queryText) {
+            displayPanel.textContent = "Warning: Input field cannot be empty.";
+            return;
+        }
+
+        const lowercaseQuery = queryText.toLowerCase();
+        const flaggedMatch = blockedWordsList.some(keyword => lowercaseQuery.includes(keyword));
+
+        if (flaggedMatch) {
+            displayPanel.textContent = "Block Action: Message failed security analysis filters.";
+            return;
+        }
+
+        displayPanel.innerHTML = `Response Logged:<br>Thank you for inquiring: "${queryText}". Exploring educational questions helps safe growth!`;
+        inputField.value = "";
+        incrementAiInquiryTracker();
+        incrementLocalStorageTracker("totalEngagementCounter");
+        updateGlobalMetricsDisplays();
+    });
+}
+
+function initializeMemoryWallGallery() {
+    const galleryContainer = document.getElementById("dynamicMemoryGrid");
+    const viewSelector = document.getElementById("filterCategoryMenu");
+    if (!galleryContainer) return;
+
+    function renderActiveCards(categoryFilter = "all") {
+        galleryContainer.innerHTML = "";
+
+        const dynamicTargetDataset = categoryFilter === "all"
+            ? memoriesArray
+            : memoriesArray.filter(card => card.category === categoryFilter);
+
+        dynamicTargetDataset.forEach(memoryNode => {
+            const nodeArticle = document.createElement("article");
+            nodeArticle.className = "card";
+
+            nodeArticle.innerHTML = `
+                <img src="${memoryNode.image}" alt="${memoryNode.title}" class="card-image-fluid" loading="lazy">
+                <div class="card-inner-content">
+                    <h3>${memoryNode.title}</h3>
+                    <p>${memoryNode.caption}</p>
+                    <button class="btn-like" data-memory-id="${memoryNode.id}">
+                        Like (<span class="like-digit">${memoryNode.likes}</span>)
+                    </button>
+                </div>
+            `;
+            galleryContainer.appendChild(nodeArticle);
+        });
+    }
+
+    galleryContainer.addEventListener("click", (event) => {
+        const buttonElement = event.target.closest(".btn-like");
+        if (!buttonElement) return;
+
+        const targetKeyId = buttonElement.getAttribute("data-memory-id");
+        const targetNumberSpan = buttonElement.querySelector(".like-digit");
+
+        const arrayRecord = memoriesArray.find(record => record.id === targetKeyId);
+        if (arrayRecord) {
+            arrayRecord.likes += 1;
+            targetNumberSpan.textContent = arrayRecord.likes;
+            incrementLocalStorageTracker("totalEngagementCounter");
+            updateGlobalMetricsDisplays();
+        }
+    });
+
+    if (viewSelector) {
+        viewSelector.addEventListener("change", (changeEvent) => {
+            renderActiveCards(changeEvent.target.value);
+        });
+    }
+
+    renderActiveCards();
+}
+
+function initializeFormSubmissionCounter() {
+    const activeFormElement = document.getElementById("registrationForm");
+    if (!activeFormElement) return;
+
+    activeFormElement.addEventListener("submit", (event) => {
+        event.preventDefault(); 
+        incrementLocalStorageTracker("totalFormRegistrations");
+        const destinationUrl = activeFormElement.getAttribute("action") || "review.html";
+        window.location.href = destinationUrl;
+    });
+}
+
+function updateGlobalMetricsDisplays() {
+    const generalEngagementContainer = document.getElementById("totalEngagementDisplay");
+    const registrationContainer = document.getElementById("totalRegistrationsDisplay");
+
+    if (generalEngagementContainer) {
+        generalEngagementContainer.textContent = fetchLocalStorageValue("totalEngagementCounter");
+    }
+    if (registrationContainer) {
+        registrationContainer.textContent = fetchLocalStorageValue("totalFormRegistrations");
+    }
+}
